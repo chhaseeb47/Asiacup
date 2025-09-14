@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asia Cup Stream</title>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .heading-card {
+      margin-top: 20px;
+      padding: 15px 30px;
+      background-color: white;
+      border: 2px solid #4CAF50;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+    }
+
+    .heading-card h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 36px;
+      color: #000;
+      text-shadow: 1px 1px 3px black;
+      margin: 0;
+    }
+
+    .video-card {
+      margin: 20px 0;
+      background: white;
+      border: 3px solid pink;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+<div class="video-card">
+    <video id="video" controls autoplay></video>
+  </div>
+
+  <div class="marquee-card">
+    <marquee direction="left">*To Enjoy All Cricket Matches Active Free Pkg On Jaz Sim*</marquee>
+  </div>
+
+  <div class="footer">Developed By Haseeb Rashid</div>
+
+  <div class="social-buttons">
+    <a href="https://whatsapp.com/channel/0029VaHI7LsFnSz1irwgsL1z" target="_blank" class="whatsapp">W</a>
+    <a href="https://youtube.com/@mhmodsofc?si=vKYNcwscCABrHLue" target="_blank" class="youtube">Y</a>
+    <a href="https://t.me/MHMODSOFC" target="_blank" class="telegram">T</a>
+  </div>
+
+  <script>
+    const video = document.getElementById('video');
+    const videoSrc = 'https://cdn10lhr.tamashaweb.com:8087/jazzauth/ASIACUP2025-abr/playlist.m3u8';
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+        video.play();
+      });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+      video.addEventListener('loadedmetadata', function () {
+        video.play();
+      });
+    } else {
+      alert('Your browser does not support HLS playback.');
+    }
+  </script>
+
+</body>
+</html>
+        
