@@ -1,58 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Asia Cup Stream</title>
+  <meta charset="UTF-8">
+  <title>Live Stream</title>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      height: 100vh;
     }
 
-    .heading-card {
-      margin-top: 20px;
-      padding: 15px 30px;
-      background-color: white;
-      border: 2px solid #4CAF50;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      border-radius: 12px;
-    }
-
-    .heading-card h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 36px;
-      color: #000;
-      text-shadow: 1px 1px 3px black;
-      margin: 0;
-    }
-
-    .video-card {
-      margin: 20px 0;
+    .card {
       background: white;
-      border: 3px solid pink;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-<div class="video-card">
+      border-radius: 12px;
+      border: 2px solid #ccc;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 500px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card h2 {
+      font-family: 'Cursive', sans-serif;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #333;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #25D366;
+      color: white;
+      padding: 12px 20px;
+text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      display: inline-block;
+      margin: 5px 0;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #1ebe5d;
+    }
+
+    .yt-btn {
+      background-color: #FF0000;
+    }
+
+    .yt-btn:hover {
+      background-color: #cc0000;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Enjoy Pak Vs India Match</h2>
     <video id="video" controls autoplay></video>
-  </div>
 
-  <div class="marquee-card">
-    <marquee direction="left">*To Enjoy All Cricket Matches Active Free Pkg On Jaz Sim*</marquee>
-  </div>
+    <a class="btn" href="https://whatsapp.com/channel/0029VaHI7LsFnSz1irwgsL1z" target="_blank">
+      FOLLOW X HASI ON WHATSAPP
+    </a><br>
 
-  <div class="footer">Developed By Haseeb Rashid</div>
-
-  <div class="social-buttons">
-    <a href="https://whatsapp.com/channel/0029VaHI7LsFnSz1irwgsL1z" target="_blank" class="whatsapp">W</a>
-    <a href="https://youtube.com/@mhmodsofc?si=vKYNcwscCABrHLue" target="_blank" class="youtube">Y</a>
-    <a href="https://t.me/MHMODSOFC" target="_blank" class="telegram">T</a>
+    <a class="btn yt-btn" href="https://youtube.com/@mhmodsofc?si=vKYNcwscCABrHLue" target="_blank">
+      SUBSCRIBE ON YT
+    </a>
   </div>
 
   <script>
@@ -69,13 +93,11 @@
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
       video.src = videoSrc;
       video.addEventListener('loadedmetadata', function () {
-        video.play();
+video.play();
       });
     } else {
       alert('Your browser does not support HLS playback.');
     }
   </script>
-
 </body>
 </html>
-        
