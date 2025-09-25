@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Live Stream</title>
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <style>
     body {
       margin: 0;
@@ -44,35 +48,52 @@
     }
 
     video {
-width: 100%;
+      width: 100%;
       height: 350px;
       border-radius: 10px;
       margin-bottom: 20px;
       background: #000;
     }
 
-    .btn {
-      background-color: #25D366;
-      color: white;
-      padding: 12px 20px;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
+    /* Smaller 3D buttons */
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .btn-3d {
       display: inline-block;
-      margin: 5px 0;
-      transition: background-color 0.3s;
+      padding: 10px 16px; /* smaller size */
+      font-size: 14px;    /* smaller font */
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      box-shadow: 0 6px #999;
+      transition: all 0.2s ease;
+      text-align: center;
     }
 
-    .btn:hover {
-      background-color: #1ebe5d;
+    .btn-3d:active {
+      box-shadow: 0 3px #666;
+      transform: translateY(3px);
     }
 
-    .yt-btn {
+    .whatsapp-btn {
+      background-color: #25D366;
+      box-shadow: 0 6px #1da851;
+    }
+
+    .youtube-btn {
       background-color: #FF0000;
+      box-shadow: 0 6px #c60000;
     }
 
-    .yt-btn:hover {
-      background-color: #cc0000;
+    .btn-3d i {
+      margin-right: 8px;
     }
 
     @media (max-width: 600px) {
@@ -93,92 +114,21 @@ width: 100%;
 
     <video id="video" controls autoplay></video>
 
-    <a class="btn" href="https://whatsapp.com/channel/0029VaHI7LsFnSz1irwgsL1z" target="_blank">
-      FOLLOW X HASI ON WHATSAPP
-    </a><br>
+    <!-- Replaced buttons here -->
+    <div class="button-container">
+      <a href="https://whatsapp.com/channel/0029VaHI7LsFnSz1irwgsL1z" target="_blank" class="btn-3d whatsapp-btn">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
 
-    <a class="btn yt-btn" href="https://youtube.com/@mhmodsofc?si=vKYNcwscCABrHLue" target="_blank">
-      SUBSCRIBE ON YT
-    </a>
+      <a href="https://youtube.com/@mhmodsofc?si=vKYNcwscCABrHLue" target="_blank" class="btn-3d youtube-btn">
+        <i class="fab fa-youtube"></i> YouTube
+      </a>
+    </div>
   </div>
-
-
-
-
-
-
-
-
-<!-- Font Awesome Icons (for WhatsApp & YouTube icons) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-<style>
-  .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
-    flex-wrap: wrap;
-  }
-
-  .btn-3d {
-    display: inline-block;
-    padding: 15px 25px;
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    box-shadow: 0 8px #999;
-    transition: all 0.2s ease;
-    text-align: center;
-  }
-
-  .btn-3d:active {
-    box-shadow: 0 4px #666;
-    transform: translateY(4px);
-  }
-
-  .whatsapp-btn {
-    background-color: #25D366;
-    box-shadow: 0 8px #1da851;
-  }
-
-  .youtube-btn {
-    background-color: #FF0000;
-    box-shadow: 0 8px #c60000;
-  }
-
-  .btn-3d i {
-    margin-right: 10px;
-  }
-</style>
-
-<div class="button-container">
-  <!-- WhatsApp Button -->
-  <a href="https://whatsapp.com/channel/0029VaHI7LsFnSz1irwgsL1z" target="_blank" class="btn-3d whatsapp-btn">
-    <i class="fab fa-whatsapp"></i> WhatsApp
-  </a>
-
-  <!-- YouTube Button -->
-<a href="https://youtube.com/@mhmodsofc?si=vKYNcwscCABrHLue" target="_blank" class="btn-3d youtube-btn">
-    <i class="fab fa-youtube"></i> YouTube
-  </a>
-</div>
-```
-
-
-
-
-
-
-
-
-  
 
   <script>
     const video = document.getElementById('video');
-const videoSrc = 'https://cdn10lhr.tamashaweb.com:8087/jazzauth/ASIACUP2025-abr/playlist.m3u8';
+    const videoSrc = 'https://cdn10lhr.tamashaweb.com:8087/jazzauth/ASIACUP2025-abr/playlist.m3u8';
 
     if (Hls.isSupported()) {
       const hls = new Hls();
